@@ -1,9 +1,9 @@
-function App() {
+const App = () => {
   return (
-    <button className="btn btn-nuetral">
-      aaa
-    </button>
+    <>
+      <Card />
+    </>
   );
-}
+};
 
 export default App;
