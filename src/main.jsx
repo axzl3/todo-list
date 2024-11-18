@@ -11,6 +11,7 @@ import {
   HomePage,
   NoPageFound,
 } from "./Pages";
+import HomeLayout from "./Layout/HomeLayout";
 
 const router = createBrowserRouter(
   [
@@ -20,8 +21,14 @@ const router = createBrowserRouter(
     },
     {
       path: "/",
-      Component: HomePage,
+      Component: HomeLayout,
       ErrorBoundary: ErrorPage,
+      children: [
+        {
+          index: true,
+          Component: HomePage,
+        },
+      ],
     },
   ],
   {
