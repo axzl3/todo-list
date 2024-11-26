@@ -2,10 +2,12 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="footer p-10 bg-base-200 text-base-content">
-      <div>
-        <p>Alexander Edic</p>
-      </div>
+    <footer className="footer p-4 bg-base-200 text-base-content flex justify-between">
+      <p>Alexander Edic</p>
+      <address>
+        edic.xander@gmail.com <br />
+        09193714311
+      </address>
     </footer>
   );
 };

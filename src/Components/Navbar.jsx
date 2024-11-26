@@ -9,7 +9,7 @@ const Navbar = () => {
           to="/"
           className="btn btn-ghost normal-case text-xl"
         >
-          MySite
+          Alexander
         </Link>
       </div>
       <div className="flex-none">
