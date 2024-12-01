@@ -1,9 +1,12 @@
 import {
+  AboutPage,
   ErrorPage,
   HomePage,
   NoPageFound,
 } from "../Pages";
+
 import HomeLayout from "../Layout/HomeLayout";
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -23,6 +26,10 @@ const router = createBrowserRouter(
         {
           index: true,
           Component: HomePage,
+        },
+        {
+          path: "/about",
+          Component: AboutPage,
         },
       ],
     },

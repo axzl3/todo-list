@@ -5,13 +5,12 @@ const HomePage = () => {
     <>
       <div className="flex flex-row">
         <Card
+          cardTitle={"Alexander Edic"}
+          cardTitleStyle={"text-4xl"}
           cardStyle={
             "h-100 w-[40rem] m-2 bg-base-300 font-serif"
           }
         >
-          <p className="text text-4xl flex-none">
-            Alexander Edic
-          </p>
           <p>
             Lorem ipsum dolor sit amet,
             consectetur adipiscing elit. Sed in

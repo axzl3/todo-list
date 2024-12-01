@@ -5,6 +5,9 @@ import { twMerge } from "tailwind-merge";
 const Card = ({
   children,
   cardTitle,
+  cardTitleStyle,
+  cardSubTitle,
+  cardSubTitleStyle,
   cardStyle,
   showButton = false,
 }) => {
@@ -17,9 +20,23 @@ const Card = ({
     >
       <div className="card-body">
         {cardTitle && (
-          <h2 className="card-title">
-            {cardTitle}
-          </h2>
+          <>
+            <h2
+              className={twMerge(
+                `card-title`,
+                cardTitleStyle
+                  ? cardTitleStyle
+                  : ""
+              )}
+            >
+              {cardTitle}
+            </h2>
+            {cardSubTitle && (
+              <h4 className={cardSubTitleStyle}>
+                {cardSubTitle}
+              </h4>
+            )}
+          </>
         )}
         {children}
         {showButton && (
@@ -37,6 +54,9 @@ const Card = ({
 Card.propTypes = {
   children: PropTypes.node,
   cardTitle: PropTypes.string,
+  cardTitleStyle: PropTypes.string,
+  cardSubTitle: PropTypes.string,
+  cardSubTitleStyle: PropTypes.string,
   cardStyle: PropTypes.string,
   showButton: PropTypes.bool,
 };
