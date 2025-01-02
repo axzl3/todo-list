@@ -1,4 +1,16 @@
 import {
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+const queryClient = new QueryClient();
+
+// import pages
+import {
   AboutPage,
   ErrorPage,
   HomePage,
@@ -7,10 +19,7 @@ import {
 
 import HomeLayout from "../Layout/HomeLayout";
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import TestPage from "../Pages/testPage";
 
 const router = createBrowserRouter(
   [
@@ -31,6 +40,10 @@ const router = createBrowserRouter(
           path: "/about",
           Component: AboutPage,
         },
+        {
+          path: "/test",
+          Component: TestPage,
+        },
       ],
     },
   ],
@@ -47,10 +60,13 @@ const router = createBrowserRouter(
 
 const App = () => {
   return (
-    <RouterProvider
-      router={router}
-      future={{ v7_startTransition: true }}
-    />
+    <QueryClientProvider client={queryClient}>
+      {" "}
+      <RouterProvider
+        router={router}
+        future={{ v7_startTransition: true }}
+      />{" "}
+    </QueryClientProvider>
   );
 };
 

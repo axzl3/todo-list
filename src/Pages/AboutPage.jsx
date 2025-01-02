@@ -1,7 +1,24 @@
 import React from "react";
 import { Card } from "../Components";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 const AboutPage = () => {
+  const fetchExp = async () => {
+    const expUrl =
+      "http://localhost:3000/api/v1/experience";
+    return (await axios.get(expUrl)).data;
+  };
+  const {
+    data: expData,
+    isError: expDataIsError,
+    isLoading: expDataIsLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["expData"],
+    queryFn: fetchExp,
+  });
+
   const cardContent = [
     {
       cardTitle: "JOURNEYTECH Inc.",
@@ -28,6 +45,14 @@ const AboutPage = () => {
           "font-serif m-2 bg-base-200 flex h-[35em] w-[80em]"
         }
       >
+        <button onClick={() => refetch()}>
+          Refetch
+        </button>
+        <button
+          onClick={() => console.log(expData)}
+        >
+          Console data
+        </button>
         <div className="flex flex-row justify-center">
           {cardContent.map((el) => (
             <Card
